@@ -12,7 +12,7 @@ const Signup = async(req,res) =>{
             res.status(400).send({"message":"User already exists"})
         }
         else{
-            if(email.includes("admin.com")){
+            // if(email.includes("admin.com")){
                 let newAdmin = await UserModel.create({
                     name,
                     email,
@@ -27,23 +27,23 @@ const Signup = async(req,res) =>{
                         role:newAdmin.role
                     })
                 }
-            }
-            else{
-                let newUser = await UserModel.create({
-                    name,
-                    email,
-                    password:hash,
-                    role:"user"
-                })  
-                 if(newUser){
-                    res.status(200).send({
-                        id:newUser._id,
-                        name:newUser.name,
-                        email:newUser.email,
-                        role:newUser.role
-                    })
-                }  
-            }
+            // }
+        //     else{
+        //         let newUser = await UserModel.create({
+        //             name,
+        //             email,
+        //             password:hash,
+        //             role:"user"
+        //         })  
+        //          if(newUser){
+        //             res.status(200).send({
+        //                 id:newUser._id,
+        //                 name:newUser.name,
+        //                 email:newUser.email,
+        //                 role:newUser.role
+        //             })
+        //         }  
+        //     }
         }
     } catch (error) {
         res.status(400).send(error)
