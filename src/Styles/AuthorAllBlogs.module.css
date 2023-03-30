@@ -1,0 +1,29 @@
+.admin{
+    width: 70%;
+    margin: auto;
+    padding: 3%;
+    
+}
+.adminBlog {
+    text-align: justify;
+    font-size: larger;
+    font-family: 'Times New Roman', Times, serif;
+    height: 200px;
+}
+.admin h1{
+    text-align: justify;
+    font-size: 30px;
+    font-family: cursive;
+}
+.adminBlog{
+   overflow-y: scroll ;
+    
+}
+.adminBlog::-webkit-scrollbar {
+  width: 5px;
+}
+
+.adminBlog::-webkit-scrollbar-thumb {
+  background-color: gray;
+  border-radius: 10px;
+}

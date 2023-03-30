@@ -1,0 +1,42 @@
+.mainBlog{
+   overflow-y: scroll ;
+    
+}
+.mainBlog::-webkit-scrollbar {
+  width: 5px;
+}
+
+.mainBlog::-webkit-scrollbar-thumb {
+  background-color: gray;
+  border-radius: 10px;
+}
+.flex{
+  display: flex;
+  justify-content: center;
+  /* border: 1px solid; */
+  width: fit-content;
+  margin: auto;
+  align-items: center;
+  flex-direction: column;
+}
+
+ @media screen and (max-width:1040px) and (min-width:541px) {
+  .singleBlog{
+    height: 100vh;
+    padding-top: 30%;
+  }
+  .flex{
+    display: flex;
+    flex-direction: column;
+  }
+ }
+ @media screen and (max-width:540px) and (min-width:350px) {
+  .singleBlog{
+    height: 100vh;
+    padding-top: 30%;
+  }
+  .flex{
+    display: flex;
+    flex-direction: column;
+  }
+ }

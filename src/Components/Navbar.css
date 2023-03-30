@@ -1,0 +1,67 @@
+.nav-menu {
+    display: flex;
+}
+
+.nav-menu li {
+    padding: 0 1rem;
+    list-style: none;
+}
+
+.nav-menu li a {
+    font-size: 1.6rem;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.nav-menu li :hover {
+    color: tomato;
+    cursor: pointer;
+   
+}
+
+.hamberger {
+    display: none;
+}
+
+@media screen and (max-width : 1040px) {
+    .nav-menu {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(43, 29, 65, 0.9);
+        top: 0;
+        left: -103%;
+        z-index: 10;
+        position: absolute;
+        transition: 0.3s;
+        line-height: 50px;
+    
+
+    }
+
+    .nav-menu.active {
+        left: 0;
+
+    }
+
+    .navMenu li{
+        text-align: justify;
+        font-size: 5rem;
+    }
+ 
+    .navMenu li a {
+        font-size: 3rem;
+        line-height: 45px;
+        font-weight: 600;
+        color: rgb(255, 255, 255);
+        text-decoration: none;
+        text-align: justify;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+   
+}
