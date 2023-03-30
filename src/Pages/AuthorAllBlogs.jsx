@@ -1,10 +1,11 @@
-import { Box, Button, Divider, Flex, FormControl, FormLabel, Heading, Input, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Text, Textarea, VStack, useDisclosure, useToast } from '@chakra-ui/react';
+import { Box, Button, Center, Divider, Flex, FormControl, FormLabel, Heading, Input, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Text, Textarea, VStack, useDisclosure, useToast } from '@chakra-ui/react';
 import axios from 'axios';
 import React, { useEffect, useRef, useState } from 'react';
 import DateFormatter from 'react-date-formatter';
 import { useSelector } from 'react-redux';
 import styles from "../Styles/AuthorAllBlogs.module.css"
 import { DeleteIcon, EditIcon } from '@chakra-ui/icons';
+import { Link } from 'react-router-dom';
 const AuthorAllBlogs = () => {
     const { isOpen, onOpen, onClose } = useDisclosure()
     const [filterData,setFilterData] = useState([])
@@ -22,7 +23,7 @@ const AuthorAllBlogs = () => {
         axios.get(`https://blog-app-5323.onrender.com/blog/allblogs`)
         .then((res) =>setData(res.data.filter((el) =>el.author?._id === store.token?._id)))
     },[data])
-    
+    // console.log(data);
     const handleChange = (e) =>{
         const {name,value} = e.target;
         setTitle({
@@ -55,8 +56,25 @@ const AuthorAllBlogs = () => {
           isClosable: true,
         })
     }
+
+    if(data.length === 0){
+        return (
+            <Center h={'85vh'}>
+                <Flex direction={'column'} align={'center'} gap={'20px'}>
+                <Heading>You don't have any blog</Heading>
+                    <Flex align={'center'} gap={'10px'}>
+                     <Link to={'/createblog'}>
+                    <Text textColor={'blue.400'} fontWeight={'bold'} fontSize={'xl'}>Click here {" "}</Text>
+                    </Link>
+                    <Text fontSize={'md'}>to start your blogging journey</Text>
+                    </Flex>
+                </Flex>
+            </Center>
+        )
+    }
     return (
         <div>
+            
            {data.map((el) =>{
                 return(
                     <Box

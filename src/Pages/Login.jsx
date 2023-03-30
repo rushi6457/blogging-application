@@ -13,7 +13,7 @@ const Login = () => {
     const toast = useToast()
     const dispatch = useDispatch();
     const store = useSelector(store =>store.login)
-    console.log(store);
+    console.log(store.isAuth);
     const navigate = useNavigate()
     const handleChange = (e) =>{
         const {name,value} = e.target;
@@ -26,17 +26,16 @@ const Login = () => {
         e.preventDefault();
         dispatch(login(user)) 
         
-         if(store.isAuth === true){
-             navigate("/createblog")
+         if(store.isAuth){
              toast({
                  title:"Login Successful",
                  status:"success",
                  isClosable:true,
                  duration:5000
-             })
-           
+                })
+            navigate("/createblog")
         }
-        else if(store.isAuth === false){
+        else if(!store.isAuth){
             
                 toast({
                 title:"Email or Password is incorrect",

@@ -53,6 +53,7 @@ const Navbar = () => {
                     <Link to={'/login'}>  
                     {/* <Tooltip hasArrow label='Profile' fontSize='md'> */}
                         <Button
+                        onClick={handleClick}
                         fontFamily={'monospace'}
                         letterSpacing={'1px'}
                         fontSize={'lg'}
